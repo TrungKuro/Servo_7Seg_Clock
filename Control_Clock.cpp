@@ -222,10 +222,11 @@ void moveMiddle(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
   {
     if (digits[prevMinuteUnits][SEG_B])
       ptrM->setPWM(MU_B, 0, segmentMOn[MU_B] - MID_OFFSET);
+    delay(TIME_SLOW);
     if (digits[prevMinuteUnits][SEG_G])
       ptrM->setPWM(MU_F, 0, segmentMOn[MU_F] + MID_OFFSET);
+    delay(TIME_SLOW);
   }
-  delay(TIME_SLOW);
   //
   if (digits[minuteUnits][SEG_G])
     ptrM->setPWM(MU_G, 0, segmentMOn[MU_G]);
@@ -239,10 +240,11 @@ void moveMiddle(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
   {
     if (digits[prevMinuteTens][SEG_B])
       ptrM->setPWM(MT_B, 0, segmentMOn[MT_B] - MID_OFFSET);
+    delay(TIME_SLOW);
     if (digits[prevMinuteTens][SEG_G])
       ptrM->setPWM(MT_F, 0, segmentMOn[MT_F] + MID_OFFSET);
+    delay(TIME_SLOW);
   }
-  delay(TIME_SLOW);
   //
   if (digits[minuteTens][SEG_G])
     ptrM->setPWM(MT_G, 0, segmentMOn[MT_G]);
@@ -256,10 +258,11 @@ void moveMiddle(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
   {
     if (digits[prevHourUnits][SEG_B])
       ptrH->setPWM(HU_B, 0, segmentHOn[HU_B] - MID_OFFSET);
+    delay(TIME_SLOW);
     if (digits[prevHourUnits][SEG_G])
       ptrH->setPWM(HU_F, 0, segmentHOn[HU_F] + MID_OFFSET);
+    delay(TIME_SLOW);
   }
-  delay(TIME_SLOW);
   //
   if (digits[hourUnits][SEG_G])
     ptrH->setPWM(HU_G, 0, segmentHOn[HU_G]);
@@ -273,10 +276,11 @@ void moveMiddle(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
   {
     if (digits[prevHourTens][SEG_B])
       ptrH->setPWM(HT_B, 0, segmentHOn[HT_B] - MID_OFFSET);
+    delay(TIME_SLOW);
     if (digits[prevHourTens][SEG_G])
       ptrH->setPWM(HT_F, 0, segmentHOn[HT_F] + MID_OFFSET);
+    delay(TIME_SLOW);
   }
-  delay(TIME_SLOW);
   //
   if (digits[hourTens][SEG_G])
     ptrH->setPWM(HT_G, 0, segmentHOn[HT_G]);
@@ -336,10 +340,11 @@ void displayMU(Adafruit_PWMServoDriver *ptrM, byte number)
   {
     if (digits[prevMinuteUnits][SEG_B])
       ptrM->setPWM(MU_B, 0, segmentMOn[MU_B] - MID_OFFSET);
+    delay(TIME_SLOW);
     if (digits[prevMinuteUnits][SEG_G])
       ptrM->setPWM(MU_F, 0, segmentMOn[MU_F] + MID_OFFSET);
+    delay(TIME_SLOW);
   }
-  delay(TIME_SLOW);
   //
   if (digits[number][SEG_G])
     ptrM->setPWM(MU_G, 0, segmentMOn[MU_G]);
@@ -367,10 +372,11 @@ void displayMT(Adafruit_PWMServoDriver *ptrM, byte number)
   {
     if (digits[prevMinuteTens][SEG_B])
       ptrM->setPWM(MT_B, 0, segmentMOn[MT_B] - MID_OFFSET);
+    delay(TIME_SLOW);
     if (digits[prevMinuteTens][SEG_G])
       ptrM->setPWM(MT_F, 0, segmentMOn[MT_F] + MID_OFFSET);
+    delay(TIME_SLOW);
   }
-  delay(TIME_SLOW);
   //
   if (digits[number][SEG_G])
     ptrM->setPWM(MT_G, 0, segmentMOn[MT_G]);
@@ -398,10 +404,11 @@ void displayHU(Adafruit_PWMServoDriver *ptrH, byte number)
   {
     if (digits[prevHourUnits][SEG_B])
       ptrH->setPWM(HU_B, 0, segmentHOn[HU_B] - MID_OFFSET);
+    delay(TIME_SLOW);
     if (digits[prevHourUnits][SEG_G])
       ptrH->setPWM(HU_F, 0, segmentHOn[HU_F] + MID_OFFSET);
+    delay(TIME_SLOW);
   }
-  delay(TIME_SLOW);
   //
   if (digits[number][SEG_G])
     ptrH->setPWM(HU_G, 0, segmentHOn[HU_G]);
@@ -429,10 +436,11 @@ void displayHT(Adafruit_PWMServoDriver *ptrH, byte number)
   {
     if (digits[prevHourTens][SEG_B])
       ptrH->setPWM(HT_B, 0, segmentHOn[HT_B] - MID_OFFSET);
+    delay(TIME_SLOW);
     if (digits[prevHourTens][SEG_G])
       ptrH->setPWM(HT_F, 0, segmentHOn[HT_F] + MID_OFFSET);
+    delay(TIME_SLOW);
   }
-  delay(TIME_SLOW);
   //
   if (digits[number][SEG_G])
     ptrH->setPWM(HT_G, 0, segmentHOn[HT_G]);
