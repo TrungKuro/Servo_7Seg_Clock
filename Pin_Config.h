@@ -137,7 +137,7 @@
 /* -------------- Vị trí thứ tự các kí tự trong mảng [number] -------------- */
 
 // Tổng số kí tự mỗi Digit có thể hiển thị
-#define TOTAL_CHAR 27
+#define TOTAL_CHAR 28
 
 // Sử dụng cho biến digits[number][segment]
 #define CHAR_H 10
@@ -160,6 +160,7 @@
 /////////////////////
 #define CHAR_11 25 // '7' ngược
 #define CHAR_12 26 // '_' ngược
+#define CHAR_13 27 // '7'
 
 /* ----------------------------- Độ PWM bù trừ ----------------------------- */
 

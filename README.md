@@ -43,7 +43,19 @@ Bằng cách mô phỏng *"Led 7 đoạn"*. Để hiển thị được **"GIỜ
 
 ... hình
 
-... video
+## Video dự án
+
+`(1)` Test thử tính năng chọn phần hiển thị các nội dung ngẫu nhiên khi mới khởi động.
+
+<iframe width="1349" height="480" src="https://www.youtube.com/embed/wiTqnXfDZhE" title="Servo 7Seg Clock (1)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+`(2)` Test thử chạy hoạt động hiển thị giờ như bình thường, với thao tác nhấn nút Reset để xem hiệu ứng lúc đầu.
+
+<iframe width="1349" height="480" src="https://www.youtube.com/embed/ybf7xXjfA1A" title="Servo 7Seg Clock (2)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+`(3)` Test thử tính năng cài đặt thời gian cho RTC và cả phần hiệu ứng âm thanh từ còi.
+
+<iframe width="1349" height="480" src="https://www.youtube.com/embed/_DDI63OU2Bg" title="Servo 7Seg Clock (3)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Các tính năng
 

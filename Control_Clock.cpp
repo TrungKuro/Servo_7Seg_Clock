@@ -140,10 +140,10 @@ void show_none(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
 // Hiển thị "T_T" = "77:77"
 void show_cry(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
 {
-  displayHT(ptrH, 7);
+  displayHT(ptrH, CHAR_13);
   displayHU(ptrH, CHAR_11);
   //
-  displayMT(ptrM, 7);
+  displayMT(ptrM, CHAR_13);
   displayMU(ptrM, CHAR_11);
 }
 
