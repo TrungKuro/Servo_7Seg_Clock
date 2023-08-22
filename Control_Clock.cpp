@@ -135,30 +135,6 @@ void show_none(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
   prevMinuteUnits = CHAR_1;
 }
 
-/* -------------------------- Cho "hiện" mặt khóc -------------------------- */
-
-// Hiển thị "T_T" = "77:77"
-void show_cry(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
-{
-  displayHT(ptrH, CHAR_13);
-  displayHU(ptrH, CHAR_11);
-  //
-  displayMT(ptrM, CHAR_13);
-  displayMU(ptrM, CHAR_11);
-}
-
-/* ------------------------ Cho "hiện" hình cái hộp ------------------------ */
-
-// Hiển thị "[=:=]"
-void show_box(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
-{
-  displayHT(ptrH, CHAR_4);
-  displayHU(ptrH, CHAR_6);
-  //
-  displayMT(ptrM, CHAR_6);
-  displayMU(ptrM, CHAR_5);
-}
-
 /* ------------------------- Cho "hiện" chữ "HELL" ------------------------- */
 
 // Hiển thị "HE:LL"
@@ -181,6 +157,30 @@ void show_smile(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
   //
   displayMT(ptrM, CHAR_7);
   displayMU(ptrM, CHAR_3);
+}
+
+/* -------------------------- Cho "hiện" mặt khóc -------------------------- */
+
+// Hiển thị "T_T" = "77:77"
+void show_cry(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
+{
+  displayHT(ptrH, CHAR_13);
+  displayHU(ptrH, CHAR_11);
+  //
+  displayMT(ptrM, CHAR_13);
+  displayMU(ptrM, CHAR_11);
+}
+
+/* ------------------------ Cho "hiện" hình cái hộp ------------------------ */
+
+// Hiển thị "[=:=]"
+void show_box(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
+{
+  displayHT(ptrH, CHAR_4);
+  displayHU(ptrH, CHAR_6);
+  //
+  displayMT(ptrM, CHAR_6);
+  displayMU(ptrM, CHAR_5);
 }
 
 /* -------------------------- Cho "hiện" mặt bị đơ ------------------------- */

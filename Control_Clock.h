@@ -42,6 +42,8 @@ extern byte prevMinuteUnits;
 // Cho "ẩn" tất cả thanh Segment
 void hide_all_segment(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 
+/* ------------------------------------------------------------------------- */
+
 // Cho "hiện" tất cả thanh Segment
 void show_all_segment(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 
@@ -63,17 +65,19 @@ void show_AH(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 // Cho "hiện" nội dung trống
 void show_none(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 
-// Cho "hiện" mặt khóc
-void show_cry(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
-
-// Cho "hiện" hình cái hộp
-void show_box(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
-
 // Cho "hiện" chữ "HELL"
 void show_HELL(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 
 // Cho "hiện" mặt cười
 void show_smile(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
+
+/* ------------------------------------------------------------------------- */
+
+// Cho "hiện" mặt khóc
+void show_cry(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
+
+// Cho "hiện" hình cái hộp
+void show_box(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 
 // Cho "hiện" mặt bị đơ
 void show_frozen(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);

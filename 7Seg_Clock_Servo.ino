@@ -162,10 +162,10 @@ enum menuDisplay
   ALO,      //
   AH,       //
   NONE,     // Hiệu ứng riêng!
-  CRY,      //
-  BOX,      //
   HELL,     //
   SMILE,    //
+  CRY,      //
+  BOX,      //
   FROZEN,   //
   QUANTITY, // Tổng số menu
 } whatDisplay;
@@ -219,14 +219,6 @@ void displayRandom(int menuChosen)
     DEBUG_PRINTLN(F("Show None."));
     show_none(&pwmH, &pwmM);
     break;
-  case CRY:
-    DEBUG_PRINTLN(F("Show T_T."));
-    show_cry(&pwmH, &pwmM);
-    break;
-  case BOX:
-    DEBUG_PRINTLN(F("Show Box."));
-    show_box(&pwmH, &pwmM);
-    break;
   case HELL:
     DEBUG_PRINTLN(F("Show 'HELL'."));
     show_HELL(&pwmH, &pwmM);
@@ -234,6 +226,14 @@ void displayRandom(int menuChosen)
   case SMILE:
     DEBUG_PRINTLN(F("Show Smile."));
     show_smile(&pwmH, &pwmM);
+    break;
+  case CRY:
+    DEBUG_PRINTLN(F("Show T_T."));
+    show_cry(&pwmH, &pwmM);
+    break;
+  case BOX:
+    DEBUG_PRINTLN(F("Show Box."));
+    show_box(&pwmH, &pwmM);
     break;
   case FROZEN:
     DEBUG_PRINTLN(F("Show Frozen."));

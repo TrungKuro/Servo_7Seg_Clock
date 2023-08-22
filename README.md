@@ -45,21 +45,25 @@ Bằng cách mô phỏng *"Led 7 đoạn"*. Để hiển thị được **"GIỜ
 
 ## Video dự án
 
-`(1)` Test thử tính năng chọn phần hiển thị các nội dung ngẫu nhiên khi mới khởi động.
-
-<iframe width="1349" height="480" src="https://www.youtube.com/embed/wiTqnXfDZhE" title="Servo 7Seg Clock (1)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-`(2)` Test thử chạy hoạt động hiển thị giờ như bình thường, với thao tác nhấn nút Reset để xem hiệu ứng lúc đầu.
-
-<iframe width="1349" height="480" src="https://www.youtube.com/embed/ybf7xXjfA1A" title="Servo 7Seg Clock (2)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-`(3)` Test thử tính năng cài đặt thời gian cho RTC và cả phần hiệu ứng âm thanh từ còi.
-
-<iframe width="1349" height="480" src="https://www.youtube.com/embed/_DDI63OU2Bg" title="Servo 7Seg Clock (3)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+> `(1)` Test thử tính năng chọn phần hiển thị các nội dung ngẫu nhiên khi mới khởi động.
+>
+> [Servo 7Seg Clock (1)](https://www.youtube.com/watch?v=wiTqnXfDZhE).
+>
+> `(2)` Test thử chạy hoạt động hiển thị giờ như bình thường, với thao tác nhấn nút Reset để xem hiệu ứng lúc đầu.
+>
+> [Servo 7Seg Clock (2)](https://www.youtube.com/watch?v=ybf7xXjfA1A).
+>
+> `(3)` Test thử tính năng cài đặt thời gian cho RTC và cả phần hiệu ứng âm thanh từ còi.
+>
+> [Servo 7Seg Clock (3)](https://www.youtube.com/watch?v=_DDI63OU2Bg).
 
 ## Các tính năng
 
-> ...
+> - Khi mới khởi động, sẽ hiển thị ngẫu nhiên nhiều nội dung, rồi mới chạy hiển thị thời gian. Có thể nhấn Reset để trải nghiệm lại cảm giác khởi động ấy.
+> - Có thể vào chế độ cấu hình, bằng cách nhập lệnh `"enter"`. Và ngược lại nhập lệnh `"exit"` để thoát chế độ này và quay về chạy hiển thị thời gian.
+> - Trong chế độ cấu hình, có thể cài đặt thời gian cho RTC bằng lệnh `"T-0:0:0"`.
+> - Bên cạnh có thể xem các phần nội dung hiển thị ngẫu nhiên bằng lệnh `"D-0"`.
+> - Ngoài ra khi đồng hồ chạy hiển thị thời gian, cứ mỗi **(1h)**, còi báo *"Tick...tick"* cho biết, còn mỗi **(15m)** báo *"Tick"*.
 
 ## Nguồn tài liệu
 
