@@ -285,10 +285,6 @@ void setup()
   // Cho phép hiển thị thời gian
   enableRun = true;
 
-  // Đưa PCA9685 về chế độ "ngủ"
-  pwmH.sleep();
-  pwmM.sleep();
-
   // Đợi khoảng thời gian trước khi vào chương trình chính
   delay(TIME_WAIT);
 }
@@ -354,6 +350,7 @@ void loop()
       // Đánh thức PCA9685 "dậy"
       pwmH.wakeup();
       pwmM.wakeup();
+      delay(TIME_SLOW);
 
       /* ------------------------------------------------------------------- */
 
@@ -448,6 +445,7 @@ void loop()
       // Đánh thức PCA9685 "dậy"
       pwmH.wakeup();
       pwmM.wakeup();
+      delay(TIME_SLOW);
 
       // Cho hiển thị theo menu đã chọn
       displayRandom(menu);
