@@ -13,13 +13,40 @@ Bằng cách mô phỏng *"Led 7 đoạn"*. Để hiển thị được **"GIỜ
 
 ## Sơ đồ kết nối
 
-...
+> **Còi Buzzer** hiện đang được kết nối với chân `D9` của bo **Arduino Uno**.
+>
+> ---
+>
+> Kết nối một **Nút nhấn** với chân `Reset` của bo **Arduino Uno**.
+>
+> ---
+>
+> Địa chỉ I2C mặc định của Driver là `0x40`. Mỗi Driver có 16 kênh. Vậy nên mình cần dùng 2 Driver, để mỗi Driver đảm nhiệm điều khiển 14 Servo, tương ứng 2 Digit 7Seg.
+>
+> Driver có địa chỉ `0x40` dùng cho ***"Digit Hour"***. Còn Driver có địa chỉ `0x41` (hàn nối **cầu A0**) dùng cho ***"Digit Minute"***.
+>
+> |Driver|Arduino|
+> |------|-------|
+> |VCC|5V
+> |SDA|SDA - `A4`
+> |SCL|SCL - `A5`
+> |GND|GND
+>
+> Chân `OE` của 2 Driver nối với nhau. Chân này mặc định là ở mức **LOW**. Khi chân này được kích lên mức **HIGH**, nó sẽ vô hiệu hóa đầu ra của tất cả các kênh. Mình ko sử dụng, nên cứ để vậy, tức là cho phép sử dụng các kênh.
+>
+> Chân `V+` của 2 Driver cũng được nối với nhau. Đây là chân dùng để cấp nguồn riêng cho các Servo. Bạn có thể cấp tận 6V hoặc có thể tới 12V, miễn là mức nguồn Servo yêu cầu.
+>
+> `V+` cũng chính là chân mình cho nhận nguồn trực tiếp, ko phải từ nguồn **5V** trên bo mạch **Arduino Uno**. Đồng thời cũng chính là nguồn cần thêm tụ vào, để giúp cho nguồn cấp được ổn định.
 
 ## Các bước lắp đặt
 
-...
+> Tốt nhất trước khi gắn các thanh đoạn Segment vào cho mỗi Servo. Từng Servo phải được *"gắn nóng"*. Tức bạn nên cấp một mức xung 1500, tương ứng góc 90º để trục Servo quay đến góc giữa, lúc này mới gắn trục cánh tay vào Servo và cả thanh đoạn Segment.
+>
+> <u>Tip</u>: dùng băng keo giấy dán nhãn tên cho từng Servo, hoặc trên dây của nó, để tránh việc cắm sai Servo vào khác kênh điều khiển.
 
 ## Các vấn đề gặp phải
+
+Ngày 22/08/23
 
 > Thật sự mình kiểm tra kĩ nhiều lần chương trình rồi, mình ko nghĩ vấn đề nằm ở *"giải thuật"* chương trình để làm cho đồng hồ có vấn đề đâu.
 >
@@ -39,9 +66,60 @@ Bằng cách mô phỏng *"Led 7 đoạn"*. Để hiển thị được **"GIỜ
 >
 > <u>Cố gắng đừng để cho quá nhiều tên Servo chạy cùng một lúc</u>. Đấy chính là giải pháp hiện tại mình có thể nghĩ ra.
 
+Ngày 23/08/23
+
+> Với sự giúp đỡ của anh Ngọc. Phần cứng đã được hoàn thiện chắc chắn hơn về nguồn cấp. Các dây điện cấp nguồn được thay bằng loại lớn hơn, đảm bảo chịu dòng tốt.
+>
+> So với cái lúc mà chưa thay dây, điện áp đo được trên Driver lẫn Arduino dao động rất nhiều, mà đấy là đo bằng VOM đấy. Sau đó thì đỡ lại nhiều rồi, cơ mà vẫn còn tình trạng chạy loạn.
+>
+> Mình đọc lại thông tin kỹ thuật của Driver thì thấy có đề cập đến việc tăng dung tích tụ tương ứng theo số lượng Servo sử dụng. Anh Ngọc hàn thêm mấy con tụ 470uF nâng tổng lên 1470uF cho mỗi Driver.
+>
+> Theo lời khuyên là 100uF cho mỗi con, tức 14 con thì 1400uF là được. Kết quả phần nguồn đã bớt dao động đi rất nhiều, chỉ còn quanh quẩn khoản 0,1V.
+>
+> Tuy nhiên vấn đề chạy loạn vẫn còn, và đó là lúc mình nhận thấy chính hàm `sleep()`. Một chức năng có sẵn của thư viện Driver là nguyên nhân gây ra vấn đề này. <u>Mình đã bỏ việc cho Driver ngủ, thay vào đó mình tự xuất các chân với PWM 0% sau mỗi cuối giai đoạn</u>. Cuối cùng vấn đề đã được giải quyết!
+
 ## Hình ảnh dự án
 
-... hình
+> `01` - Ghi chú cho từng Segment
+>
+> <img src="./Img/01 - Ghi chú cho từng Segment.jpg" width="100%">
+>
+> `02` - Ghi chú cho từng Servo
+>
+> <img src="./Img/02 - Ghi chú cho từng Servo.jpg" width="100%">
+>
+> `03` - Chi tiết khớp nối giữa Servo và thanh đoạn Segment
+>
+> <img src="./Img/03 - Chi tiết khớp nối giữa Servo và thanh đoạn Segment.jpg" width="100%">
+>
+> `04` - Lắp đặt 7 Servo cho mỗi Digit
+>
+> <img src="./Img/04 - Lắp đặt 7 Servo cho mỗi Digit.jpg" width="100%">
+>
+> `05` - Công tắc nguồn cho hệ thống
+>
+> <img src="./Img/05 - Công tắc nguồn cho hệ thống.jpg" width="100%">
+>
+> `06` - Nút Reset ... boom
+>
+> <img src="./Img/06 - Nút Reset ... boom.jpg" width="100%">
+>
+> `07` - Tụ hỗ trợ thêm cho nguồn Servo
+>
+> <img src="./Img/07 - Tụ hỗ trợ thêm cho nguồn Servo.jpg" width="100%">
+>
+> `08` - Mặt sau, lắp ráp xong
+>
+> <img src="./Img/08 - Mặt sau, lắp ráp xong.jpg" width="100%">
+>
+> `09` - Mặt trước, lắp ráp xong
+>
+> <img src="./Img/09 - Mặt trước, lắp ráp xong.jpg" width="100%">
+>
+> `10` - Lắp đặt hoàn chỉnh ... chạy
+>
+> <img src="./Img/10 - Lắp đặt hoàn chỉnh ... chạy.jpg" width="100%">
+>
 
 ## Video dự án
 
