@@ -15,6 +15,12 @@
  * 'num'  : một trong các kênh đầu ra PWM, được đánh số từ 0 đến 15
  * 'on'   : tại một thời điểm trong chu kỳ 4096 phần, xung được kích từ LOW lên HIGH
  * 'off'  : tại một thời điểm trong chu kỳ 4096 phần, xung được kích từ HIGH xuống LOW
+ *
+ * Bật một chân lên mức HIGH (với độ rộng xung là 100%)
+ * setPWM(num, 4096, 0)
+ *
+ * Tắt một chân xuống mức LOW (với độ rộng xung là 0%)
+ * setPWM(num, 0, 4096)
  */
 
 /* --------------------- Cho "ẩn" tất cả thanh Segment --------------------- */
@@ -149,14 +155,14 @@ void show_HELL(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
 
 /* -------------------------- Cho "hiện" mặt cười -------------------------- */
 
-// Hiển thị " º:º "
+// Hiển thị "º_:_º"
 void show_smile(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
 {
-  displayHT(ptrH, CHAR_3);
-  displayHU(ptrH, CHAR_7);
+  displayHT(ptrH, CHAR_7);
+  displayHU(ptrH, CHAR_2);
   //
-  displayMT(ptrM, CHAR_7);
-  displayMU(ptrM, CHAR_3);
+  displayMT(ptrM, CHAR_2);
+  displayMU(ptrM, CHAR_7);
 }
 
 /* -------------------------- Cho "hiện" mặt khóc -------------------------- */
@@ -185,13 +191,13 @@ void show_box(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
 
 /* -------------------------- Cho "hiện" mặt bị đơ ------------------------- */
 
-// Hiển thị "-_-" = "__:__"
+// Hiển thị "-_-" = "_=:=_"
 void show_frozen(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
 {
   displayHT(ptrH, CHAR_12);
-  displayHU(ptrH, CHAR_2);
+  displayHU(ptrH, CHAR_6);
   //
-  displayMT(ptrM, CHAR_2);
+  displayMT(ptrM, CHAR_6);
   displayMU(ptrM, CHAR_12);
 }
 
@@ -480,4 +486,15 @@ void tickTick()
   digitalWrite(PIN_BUZZ, HIGH);
   delay(50);
   digitalWrite(PIN_BUZZ, LOW);
+}
+
+/* --------------------------- Thả lỏng các Servo -------------------------- */
+
+void release(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM)
+{
+  for (int pin = 0; pin < PIN_PCA9685; pin++)
+  {
+    ptrH->setPWM(pin, 0, 4096); // Xuất LOW (độ rộng xung 0%)
+    ptrM->setPWM(pin, 0, 4096); // Xuất LOW (độ rộng xung 0%)
+  }
 }

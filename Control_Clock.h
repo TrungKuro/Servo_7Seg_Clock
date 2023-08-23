@@ -71,8 +71,6 @@ void show_HELL(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 // Cho "hiện" mặt cười
 void show_smile(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 
-/* ------------------------------------------------------------------------- */
-
 // Cho "hiện" mặt khóc
 void show_cry(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 
@@ -111,6 +109,11 @@ void tick();
 
 // Tick tick!
 void tickTick();
+
+/* ------------------------------------------------------------------------- */
+
+// Thả lỏng các Servo
+void release(Adafruit_PWMServoDriver *ptrH, Adafruit_PWMServoDriver *ptrM);
 
 /* ------------------------------------------------------------------------- */
 

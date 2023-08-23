@@ -125,7 +125,7 @@ const bool digits[TOTAL_CHAR][SEGMENT] = {
     ////////////////////////////////////
     {1, 0, 0, 0, 1, 1, 0}, // Kí tự '7': .               .   .     (CHAR_11) - Kí tự '7' ngược
     {1, 0, 0, 0, 0, 0, 0}, // Kí tự '_': .                         (CHAR_12) - Kí tự '_' ngược
-    {1, 1, 1, 0, 0, 0, 0}, // Kí tự '7 : .   .   .                 (CHAR_13) - DEBUG
+    {1, 1, 1, 0, 0, 0, 0}  // Kí tự '7 : .   .   .                 (CHAR_13) - DEBUG
 };
 
 /* ------------------------------------------------------------------------- */
@@ -167,7 +167,7 @@ enum menuDisplay
   CRY,      //
   BOX,      //
   FROZEN,   //
-  QUANTITY, // Tổng số menu
+  QUANTITY  // Tổng số menu
 } whatDisplay;
 
 // Cho phép hoặc ko chạy tính năng hiển thị thời gian
@@ -348,11 +348,6 @@ void loop()
     {
       DEBUG_PRINTLN(F("Update Time."));
 
-      // Đánh thức PCA9685 "dậy"
-      pwmH.wakeup();
-      pwmM.wakeup();
-      delay(TIME_SLOW);
-
       /* ------------------------------------------------------------------- */
 
       // Tách giá trị "Hour" thành 2 Digit, cho hàng chục (TEN) và hàng đơn vị (UNIT)
@@ -394,10 +389,9 @@ void loop()
 
       /* ------------------------------------------------------------------- */
 
-      // Đưa PCA9685 về chế độ "ngủ"
+      // Cho tất cả các Servo nghỉ
       delay(TIME_SLOW);
-      pwmH.sleep();
-      pwmM.sleep();
+      release(&pwmH, &pwmM);
     }
   }
 
@@ -443,18 +437,12 @@ void loop()
       DEBUG_PRINT(F("Display: "));
       DEBUG_PRINTLN(menu);
 
-      // Đánh thức PCA9685 "dậy"
-      pwmH.wakeup();
-      pwmM.wakeup();
-      delay(TIME_SLOW);
-
       // Cho hiển thị theo menu đã chọn
       displayRandom(menu);
 
-      // Đưa PCA9685 về chế độ "ngủ"
+      // Cho tất cả các Servo nghỉ
       delay(TIME_SLOW);
-      pwmH.sleep();
-      pwmM.sleep();
+      release(&pwmH, &pwmM);
     }
     /* ---------------------- Thêm các cú pháp cần... ---------------------- */
     // else if (){}

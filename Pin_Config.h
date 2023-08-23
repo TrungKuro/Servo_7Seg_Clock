@@ -178,8 +178,8 @@
 #define TIME_UPDATE 1000
 
 // Khoảng thời gian dừng giữa mỗi Segment. Đơn vị (ms)
-#define TIME_FAST 55
-#define TIME_SLOW 105
+#define TIME_FAST 50
+#define TIME_SLOW 100
 
 /* ------------------------------------------------------------------------- */
 
